@@ -12,7 +12,7 @@ class App < Sinatra::Base
   post "/puppy" do
     binding.pry
     params.collect do |key, value|
-      key.to_sym
+      key.to_sym => value
     end
     @puppy = Puppy.new(params)
     erb :display_puppy
