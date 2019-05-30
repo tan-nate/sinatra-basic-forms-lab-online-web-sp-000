@@ -11,7 +11,7 @@ class App < Sinatra::Base
 
   post "/puppy" do
     binding.pry
-    params.collect! do |key, value|
+    params.collect do |key, value|
       key.to_sym
     end
     @puppy = Puppy.new(params)
