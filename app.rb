@@ -10,9 +10,7 @@ class App < Sinatra::Base
   end
 
   post "/puppy" do
-    binding.pry
-    params = params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
-    @puppy = Puppy.new(params)
+    @puppy = Puppy.new(params["name"], params["breed"], params["age"])
     erb :display_puppy
   end
 end
